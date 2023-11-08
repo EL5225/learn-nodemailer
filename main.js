@@ -5,6 +5,7 @@ const nodemailer = require("nodemailer");
 const {
   GOOGLE_REFRESH_TOKEN,
   GOOGLE_SENDER_EMAIL,
+  GOOGLE_RECEIVER_EMAIL,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
 } = process.env;
@@ -31,4 +32,4 @@ const sendEmail = async (to, subject, html) => {
   await transport.sendMail({ to, subject, html });
 };
 
-sendEmail("lgupix@gmail.com", "Test", template);
+sendEmail(GOOGLE_RECEIVER_EMAIL, "Test", template);
